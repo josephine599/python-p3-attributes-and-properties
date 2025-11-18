@@ -16,4 +16,18 @@ APPROVED_JOBS = [
 ]
 
 class Person:
-    pass
+    def __init__(self, name=None, job=None):
+
+        # Handle name only if provided
+        if name is not None:
+            if isinstance(name, str) and 1 <= len(name) <= 25:
+                self.name = name.title()
+            else:
+                print("Name must be string between 1 and 25 characters.")
+
+        # Handle job only if provided
+        if job is not None:
+            if job in APPROVED_JOBS:
+                self.job = job
+            else:
+                print("Job must be in list of approved jobs.")
